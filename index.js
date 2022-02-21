@@ -3,8 +3,8 @@ const app = express()
 const mongoose = require('mongoose')
 const authRoute=require('./routes/auth')
 const usersRoute = require('./routes/users')
+const postRoute=require('./routes/posts')
 const  morgan = require('morgan')
-
 require('dotenv').config()
 app.use(express.json())
 console.log(process.env.BLOG_URL)
@@ -24,6 +24,7 @@ app.use(morgan("common"))
   //routers
 app.use("/api/auth",authRoute)
 app.use("/api/users",usersRoute)
+app.use("/api/posts",postRoute)
 // PORT 
 const port=process.env.PORT||3300
 app.listen(port,()=>{
